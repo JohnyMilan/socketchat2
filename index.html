@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>
+            Static File Index.HTML
+        </title>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js'></script>
+    </head>
+    <body>
+        <div id='hist'>
+            
+        </div>
+        <script>       
+            const socket = io("http://http://socketchat2.kulibaba19012001.fe.a-level.com.ua/")
+            let nick = document.createElement("input")
+            document.body.append(nick)            
+            let message = document.createElement("input")
+            document.body.append(message)            
+            let send = document.createElement("button")
+            document.body.append(send)            
+            send.onclick = () => socket.emit('msg', {nick : nick.value, message: message.value});
+            socket.on('msg', msg => hist.append(innerText = `${msg.nick}: ${msg.message}`));
+        </script>
+    </body>
+</html>
